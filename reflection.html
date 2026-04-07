@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!--
+    Assignment 1 - Interactive Media | RMIT University
+    Page: Reflection - Questions 12 to 13
+    Student: Akira Lordsmith
+
+    This page closes the analysis with a personal evaluation.
+    Questions 12 and 13 require a subjective stance — identifying what
+    was most frustrating and most satisfying and explaining why.
+    Placing these last mirrors the arc of a written analysis:
+    observation, interpretation, then personal judgement.
+  -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflection - Interactive Media A1</title>
+  <link rel="stylesheet" href="reset.css" />
+
+  <style>
+
+    /* ==========================================================================
+       GLOBAL
+       ========================================================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f2f1ef;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       SITE HEADER
+       ========================================================================== */
+
+    .site-header {
+      position: relative;
+      padding: 20px 40px 0 40px;
+      overflow: hidden;
+      background: linear-gradient(
+        160deg,
+        #c4d6ee 0%,
+        #d8e3f0 30%,
+        #ede5d8 65%,
+        #f0ede6 100%
+      );
+    }
+
+    /* ==========================================================================
+       DECORATIVE ORBS
+       ========================================================================== */
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .orb-blue {
+      width: 340px;
+      height: 340px;
+      background: #a8c4e8;
+      top: 60px;
+      left: -80px;
+    }
+
+    .orb-amber {
+      width: 300px;
+      height: 300px;
+      background: #d4a060;
+      bottom: 40px;
+      right: 40px;
+    }
+
+    /* ==========================================================================
+       SITE BRANDING
+       ========================================================================== */
+
+    .site-branding {
+      font-size: 13px;
+      font-weight: 400;
+      font-style: normal;
+      color: #333;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* ==========================================================================
+       SITE NAVIGATION
+       ========================================================================== */
+
+    .site-nav {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      z-index: 3;
+    }
+
+    .site-nav ul {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      color: #1a1a1a;
+      transition: color 0.25s;
+    }
+
+    .site-nav a:hover {
+      color: #666;
+    }
+
+    .site-nav a.active {
+      border-bottom: 1.5px solid #1a1a1a;
+      padding-bottom: 2px;
+    }
+
+    /* ==========================================================================
+       HERO FIGURE
+       ========================================================================== */
+
+    .hero-figure {
+      position: relative;
+      margin: 28px -40px 0 -40px;
+      z-index: 2;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .hero-figure figcaption {
+      position: absolute;
+      bottom: 16px;
+      left: 40px;
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.04em;
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT
+       ========================================================================== */
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px 20px 40px;
+    }
+
+    /* ==========================================================================
+       PAGE INTRO
+       ========================================================================== */
+
+    .page-intro {
+      padding-bottom: 48px;
+      border-bottom: 1px solid #e0ddd8;
+      margin-bottom: 10px;
+      max-width: 500px;
+    }
+
+    .page-intro h1 {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      color: #1a1a1a;
+    }
+
+    .page-intro p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #666;
+    }
+
+    /* ==========================================================================
+       RESPONSE CARDS
+       ========================================================================== */
+
+    .response-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: 64px 0;
+      border-bottom: 1px solid #e0ddd8;
+    }
+
+    .response-card:last-child {
+      border-bottom: none;
+    }
+
+    .response-card.reverse .card-figure {
+      order: 2;
+    }
+
+    .response-card.reverse .card-text {
+      order: 1;
+    }
+
+    /* ==========================================================================
+       CARD FIGURE
+       ========================================================================== */
+
+    .card-figure {
+      margin: 0;
+    }
+
+    .card-figure img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+    }
+
+    /* ==========================================================================
+       CARD TEXT
+       ========================================================================== */
+
+    .card-text .q-number {
+      font-size: 14px;
+      font-weight: 400;
+      color: #bbb;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .card-text h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+      line-height: 1.3;
+    }
+
+    .card-text .prompt {
+      font-size: 12px;
+      font-style: italic;
+      font-weight: 400;
+      color: #999;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .card-text p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: #555;
+    }
+
+    /* ==========================================================================
+       PAGE NAVIGATION
+       ========================================================================== */
+
+    .page-nav {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #e0ddd8;
+    }
+
+    .page-nav a {
+      font-size: 13px;
+      text-decoration: none;
+      color: #777;
+      transition: color 0.2s;
+    }
+
+    .page-nav a:hover {
+      color: #1a1a1a;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+
+    footer {
+      text-align: center;
+      padding: 22px 40px;
+      font-size: 12px;
+      color: #bbb;
+      border-top: 1px solid #e0ddd8;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE — MOBILE
+       ========================================================================== */
+
+    @media (max-width: 680px) {
+
+      .site-header {
+        padding: 20px 24px 0 24px;
+      }
+
+      .hero-figure {
+        margin: 20px -24px 0 -24px;
+      }
+
+      .hero-image {
+        height: 180px;
+      }
+
+      main {
+        padding: 40px 24px 20px 24px;
+      }
+
+      .response-card {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 48px 0;
+      }
+
+      .response-card.reverse .card-figure,
+      .response-card.reverse .card-text {
+        order: unset;
+      }
+
+      .page-nav {
+        padding: 24px;
+      }
+
+      .site-nav ul {
+        gap: 20px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+
+  <aside class="orb orb-blue" aria-hidden="true"></aside>
+  <aside class="orb orb-amber" aria-hidden="true"></aside>
+
+  <address class="site-branding">Akira Lordsmith</address>
+
+  <nav class="site-nav" aria-label="main site navigation">
+    <ul>
+      <li><a href="index.html">Research</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="reflection.html" class="active">Reflection</a></li>
+    </ul>
+  </nav>
+
+  <figure class="hero-figure">
+    <img
+      src="richbrown-hero.jpg"
+      alt="Screenshot of the Rich Brown portfolio homepage showing his name, art director title and featured project work"
+      class="hero-image"
+    />
+    <figcaption class="hero-caption">Interactive Experience Analysis — Rich Brown Portfolio</figcaption>
+  </figure>
+
+</header>
+
+<main>
+
+  <section class="page-intro">
+    <h1>Reflection</h1>
+    <p>
+      Questions twelve and thirteen close the analysis with a personal evaluation,
+      identifying what was most frustrating and most satisfying about the interaction
+      and explaining the reasoning behind each response.
+    </p>
+  </section>
+
+  <!-- Q12: image left, text right -->
+  <article class="response-card" id="q12">
+    <figure class="card-figure">
+      <img
+        src="q12-image.jpg"
+        alt="Navigation elements on the Rich Brown portfolio that lack explicit interactive signifiers"
+      />
+    </figure>
+    <section class="card-text">
+      <p class="q-number">12</p>
+      <h2>Most Frustrating Aspect</h2>
+      <h3 class="prompt">What is the most frustrating part of the interaction and what makes that part frustrating?</h3>
+      <p>
+        The most frustrating aspect of the interaction is the limited use of explicit
+        signifiers and navigation cues, which can make it difficult to immediately
+        understand how to move between sections. While the minimal design supports
+        aesthetic clarity, it can reduce usability for first-time users by requiring
+        additional effort to interpret interactive elements. This creates a tension
+        between visual simplicity and functional clarity.
+      </p>
+    </section>
+  </article>
+
+  <!-- Q13: image right, text left -->
+  <article class="response-card reverse" id="q13">
+    <figure class="card-figure">
+      <img
+        src="q13-image.jpg"
+        alt="The smooth scrolling layout and cohesive visual design of the Rich Brown portfolio"
+      />
+    </figure>
+    <section class="card-text">
+      <p class="q-number">13</p>
+      <h2>Most Satisfying Aspect</h2>
+      <h3 class="prompt">What is the most satisfying part of the interaction and what makes that part satisfying?</h3>
+      <p>
+        The most satisfying aspect is the seamless integration of interaction and visual
+        design, particularly through smooth scrolling and consistent layout. The experience
+        feels cohesive and intentional, with each element contributing to a unified
+        aesthetic. This level of polish enhances usability and reinforces the designer's
+        professional identity, making the interaction both engaging and visually rewarding.
+      </p>
+    </section>
+  </article>
+
+</main>
+
+<nav class="page-nav" aria-label="page navigation">
+  <a href="experience.html">&larr; Previous: Experience</a>
+</nav>
+
+<footer>
+  <p>&copy; 2026 Akira Lordsmith &mdash; Interactive Media Assignment 1 &mdash; RMIT University</p>
+</footer>
+
+</body>
+</html>

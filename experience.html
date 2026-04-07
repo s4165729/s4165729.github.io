@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!--
+    Assignment 1 - Interactive Media | RMIT University
+    Page: Experience - Questions 5 to 11
+    Student: Akira Lordsmith
+
+    This page moves from observation into interpretation.
+    Questions 5-11 examine the primary goal of the experience, how it
+    communicates that goal, what media references it draws on, and how
+    those references shape user behaviour and feeling.
+  -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience - Interactive Media A1</title>
+  <link rel="stylesheet" href="reset.css" />
+
+  <style>
+
+    /* ==========================================================================
+       GLOBAL — same rules repeated on each page so each file is self-contained
+       and works independently when opened in VS Code or uploaded to GitHub Pages
+       ========================================================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f2f1ef;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       SITE HEADER
+       ========================================================================== */
+
+    .site-header {
+      position: relative;
+      padding: 20px 40px 0 40px;
+      overflow: hidden;
+      background: linear-gradient(
+        160deg,
+        #c4d6ee 0%,
+        #d8e3f0 30%,
+        #ede5d8 65%,
+        #f0ede6 100%
+      );
+    }
+
+    /* ==========================================================================
+       DECORATIVE ORBS
+       ========================================================================== */
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .orb-blue {
+      width: 340px;
+      height: 340px;
+      background: #a8c4e8;
+      top: 60px;
+      left: -80px;
+    }
+
+    .orb-amber {
+      width: 300px;
+      height: 300px;
+      background: #d4a060;
+      bottom: 40px;
+      right: 40px;
+    }
+
+    /* ==========================================================================
+       SITE BRANDING
+       ========================================================================== */
+
+    .site-branding {
+      font-size: 13px;
+      font-weight: 400;
+      font-style: normal;
+      color: #333;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* ==========================================================================
+       SITE NAVIGATION
+       ========================================================================== */
+
+    .site-nav {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      z-index: 3;
+    }
+
+    .site-nav ul {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      color: #1a1a1a;
+      transition: color 0.25s;
+    }
+
+    .site-nav a:hover {
+      color: #666;
+    }
+
+    .site-nav a.active {
+      border-bottom: 1.5px solid #1a1a1a;
+      padding-bottom: 2px;
+    }
+
+    /* ==========================================================================
+       HERO FIGURE
+       ========================================================================== */
+
+    .hero-figure {
+      position: relative;
+      margin: 28px -40px 0 -40px;
+      z-index: 2;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .hero-figure figcaption {
+      position: absolute;
+      bottom: 16px;
+      left: 40px;
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.04em;
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT
+       ========================================================================== */
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px 20px 40px;
+    }
+
+    /* ==========================================================================
+       PAGE INTRO
+       ========================================================================== */
+
+    .page-intro {
+      padding-bottom: 48px;
+      border-bottom: 1px solid #e0ddd8;
+      margin-bottom: 10px;
+      max-width: 500px;
+    }
+
+    .page-intro h1 {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      color: #1a1a1a;
+    }
+
+    .page-intro p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #666;
+    }
+
+    /* ==========================================================================
+       RESPONSE CARDS
+       ========================================================================== */
+
+    .response-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: 64px 0;
+      border-bottom: 1px solid #e0ddd8;
+    }
+
+    .response-card:last-child {
+      border-bottom: none;
+    }
+
+    .response-card.reverse .card-figure {
+      order: 2;
+    }
+
+    .response-card.reverse .card-text {
+      order: 1;
+    }
+
+    /* ==========================================================================
+       CARD FIGURE
+       ========================================================================== */
+
+    .card-figure {
+      margin: 0;
+    }
+
+    .card-figure img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+    }
+
+    /* ==========================================================================
+       CARD TEXT
+       ========================================================================== */
+
+    .card-text .q-number {
+      font-size: 14px;
+      font-weight: 400;
+      color: #bbb;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .card-text h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+      line-height: 1.3;
+    }
+
+    .card-text .prompt {
+      font-size: 12px;
+      font-style: italic;
+      font-weight: 400;
+      color: #999;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .card-text p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: #555;
+    }
+
+    /* ==========================================================================
+       PAGE NAVIGATION
+       ========================================================================== */
+
+    .page-nav {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #e0ddd8;
+    }
+
+    .page-nav a {
+      font-size: 13px;
+      text-decoration: none;
+      color: #777;
+      transition: color 0.2s;
+    }
+
+    .page-nav a:hover {
+      color: #1a1a1a;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+
+    footer {
+      text-align: center;
+      padding: 22px 40px;
+      font-size: 12px;
+      color: #bbb;
+      border-top: 1px solid #e0ddd8;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE — MOBILE
+       ========================================================================== */
+
+    @media (max-width: 680px) {
+
+      .site-header {
+        padding: 20px 24px 0 24px;
+      }
+
+      .hero-figure {
+        margin: 20px -24px 0 -24px;
+      }
+
+      .hero-image {
+        height: 180px;
+      }
+
+      main {
+        padding: 40px 24px 20px 24px;
+      }
+
+      .response-card {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 48px 0;
+      }
+
+      .response-card.reverse .card-figure,
+      .response-card.reverse .card-text {
+        order: unset;
+      }
+
+      .page-nav {
+        padding: 24px;
+      }
+
+      .site-nav ul {
+        gap: 20px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+
+  <aside class="orb orb-blue" aria-hidden="true"></aside>
+  <aside class="orb orb-amber" aria-hidden="true"></aside>
+
+  <address class="site-branding">Akira Lordsmith</address>
+
+  <nav class="site-nav" aria-label="main site navigation">
+    <ul>
+      <li><a href="index.html">Research</a></li>
+      <li><a href="experience.html" class="active">Experience</a></li>
+      <li><a href="reflection.html">Reflection</a></li>
+    </ul>
+  </nav>
+
+  <figure class="hero-figure">
+    <img
+      src="richbrown-hero.jpg"
+      alt="Screenshot of the Rich Brown portfolio homepage showing his name, art director title and featured project work"
+      class="hero-image"
+    />
+    <figcaption class="hero-caption">Interactive Experience Analysis — Rich Brown Portfolio</figcaption>
+  </figure>
+
+</header>
+
+<main>
+
+  <section class="page-intro">
+    <h1>Experience</h1>
+    <p>
+      Questions five through eleven shift from observation toward interpretation,
+      examining the portfolio's goals, how it communicates them, and what cultural
+      references it draws on to shape user behaviour and feeling.
+    </p>
+  </section>
+
+  <!-- Q5: image left, text right -->
+  <article class="response-card" id="q5">
+    <figure class="card-figure">
+      <img src="q5-image.jpg" alt="The Rich Brown portfolio homepage layout showing project hierarchy and visual structure" />
+    </figure>
+    <section class="card-text">
+      <p class="q-number">05</p>
+      <h2>Primary Goal</h2>
+      <h3 class="prompt">What is your impression of the intended primary goal of the interactive experience?</h3>
+      <p>
+        The primary goal of the experience is to communicate Rich Brown's creative
+        identity and professional capability through a curated digital portfolio. The
+        site is designed to present his work in a way that is both accessible and
+        visually engaging, positioning him within a contemporary design context. This
+        aligns with the broader function of portfolio websites, which aim to both inform
+        and persuade audiences such as potential employers or collaborators of the
+        designer's value.
+      </p>
+    </section>
+  </article>
+
+  <!-- Q6: image right, text left -->
+  <article class="response-card reverse" id="q6">
+    <figure class="card-figure">
+      <img src="q6-image.jpg" alt="Typography and whitespace details visible in the Rich Brown portfolio" />
+    </figure>
+    <section class="card-text">
+      <p class="q-number">06</p>
+      <h2>Communicating the Goal</h2>
+      <h3 class="prompt">How does the interactive experience communicate this primary goal?</h3>
+      <p>
+        The experience communicates this goal through a combination of minimal interface
+        design, strong visual hierarchy, and controlled interaction design. The restrained
+        colour palette and clean typography reduce cognitive load, ensuring that attention
+        is directed toward the projects themselves. The use of scrolling as a primary
+        interaction creates a guided narrative flow, while spacing and layout reinforce
+        the importance of each project.
+      </p>
+    </section>
+  </article>
+
+  <!-- Q7: image left, text right -->
+  <article class="response-card" id="q7">
+    <figure class="card-figure">
+      <img src="q7-image.jpg" alt="The navigation structure and project layout of the Rich Brown portfolio" />
+    </figure>
+    <section class="card-text">
+      <p class="q-number">07</p>
+      <h2>Interaction Over Time</h2>
+      <h3 class="prompt">What is your impression of how the experience should be interacted with over time?</h3>
+      <p>
+        The experience appears to be designed for short, repeat interactions rather than
+        extended continuous use. Users can quickly navigate and consume content, but the
+        structure also supports revisiting specific projects over time. This aligns with
+        portfolio-based experiences, where engagement is often task-oriented such as
+        reviewing work, but may occur multiple times for deeper exploration or comparison.
+      </p>
+    </section>
+  </article>
+
+  <!-- Q8: image right, text left -->
+  <article class="response-card reverse" id="q8">
+    <figure class="card-figure">
+      <img src="q8-image.jpg" alt="The minimal navigation interface of the Rich Brown portfolio" />
+    </figure>
+    <section class="card-text">
+      <p class="q-number">08</p>
+      <h2>Signalling Temporal Use</h2>
+      <h3 class="prompt">How does the interactive experience communicate how it should be interacted with over time?</h3>
+      <p>
+        This is communicated through the absence of long-term engagement features such
+        as accounts or progress tracking, alongside a clear and intuitive navigation
+        structure. The simplicity of the interface and immediate access to content suggest
+        that users can re-enter the experience at any point without prior context. This
+        reduces friction and reinforces the idea of flexible, repeat engagement.
+      </p>
+    </section>
+  </article>
+
+  <!-- Q9: image left, text right -->
+  <article class="response-card" id="q9">
+    <figure class="card-figure">
+      <img src="q9-image.jpg" alt="Editorial layout and typographic emphasis within the Rich Brown portfolio" />
+    </figure>
+    <section class="card-text">
+      <p class="q-number">09</p>
+      <h2>Media References</h2>
+      <h3 class="prompt">What other media forms does the experience reference?</h3>
+      <p>
+        The experience draws from editorial design, digital portfolios, and high-end
+        fashion websites, as well as elements of print media such as magazines. This is
+        evident in the use of structured layouts, intentional whitespace, and typographic
+        emphasis, all of which reflect traditional editorial composition adapted into a
+        digital format.
+      </p>
+    </section>
+  </article>
+
+  <!-- Q10: image right, text left -->
+  <article class="response-card reverse" id="q10">
+    <figure class="card-figure">
+      <img src="q10-image.jpg" alt="Whitespace and deliberate pacing within the Rich Brown portfolio" />
+    </figure>
+    <section class="card-text">
+      <p class="q-number">10</p>
+      <h2>References and Behaviour</h2>
+      <h3 class="prompt">What does this reference communicate about how you should act when engaging with the experience?</h3>
+      <p>
+        These media references encourage a mode of interaction that is slow, deliberate,
+        and observational. Similar to engaging with a curated magazine or gallery, the
+        user is positioned to explore content thoughtfully, paying attention to visual and
+        conceptual details. This reduces impulsive interaction and instead promotes a more
+        reflective engagement with the work.
+      </p>
+    </section>
+  </article>
+
+  <!-- Q11: image left, text right -->
+  <article class="response-card" id="q11">
+    <figure class="card-figure">
+      <img src="q11-image.jpg" alt="The calm minimal aesthetic and refined colour palette of the Rich Brown portfolio" />
+    </figure>
+    <section class="card-text">
+      <p class="q-number">11</p>
+      <h2>References and Feeling</h2>
+      <h3 class="prompt">What does this reference communicate about how you should feel when engaging with the experience?</h3>
+      <p>
+        The references evoke a sense of calm, focus, and sophistication. The minimal
+        aesthetic and editorial influence reduce visual noise, allowing the user to feel
+        more immersed and attentive. This emotional response enhances the perceived
+        professionalism of the work and strengthens the overall user experience.
+      </p>
+    </section>
+  </article>
+
+</main>
+
+<nav class="page-nav" aria-label="page navigation">
+  <a href="index.html">&larr; Previous: Research</a>
+  <a href="reflection.html">Next: Reflection &rarr;</a>
+</nav>
+
+<footer>
+  <p>&copy; 2026 Akira Lordsmith &mdash; Interactive Media Assignment 1 &mdash; RMIT University</p>
+</footer>
+
+</body>
+</html>
