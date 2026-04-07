@@ -165,7 +165,7 @@ main {
     border-bottom: none;
 }
 
-.response-card.reverse .card-image {
+.response-card.reverse .card-figure {
     order: 2;
 }
 
@@ -173,7 +173,7 @@ main {
     margin: 0;
 }
 
-.card-image img {
+.card-figure img {
     width: 100%;
     aspect-ratio: 4/3;
     object-fit: cover;
@@ -236,7 +236,7 @@ main {
 footer {
     text-align: center;
     padding: 22px 40px;
-    font-family: 12px;
+    font-size: 12px;
     color: #bbb;
     border-top: 1px solid #e0ddd8;
 }
@@ -298,22 +298,21 @@ footer {
     <div class="orb orb-amber" aria-hidden="true"></div>
 
     
-    <div class="site-branding">Akira Lordsmith<adress>
-    </div>
+   <address class="site-branding">Akira Lordsmith</address>
     
 <nav class="site-nav" aria-label="main site navigation">
-</ul>
-     <li><a href="index.html" class="active">Research</a></li>
-        <li><a href="experience.html">Experience</a></li>
-      <li><a href="reflection.html">Reflection</a></li>
-    </ul>
+  <ul>
+    <li><a href="index.html" class="active">Research</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="reflection.html">Reflection</a></li>
+  </ul>
 </nav>
 
 <figure class="hero-figure">
     <img
     src="richbrown-privew.jpg"
     alt="screenshot of rich brown portfolio homepage"
-    class=" "hero-image
+    class="hero-image"
     />
 
     <figcaption class="hero-caption">Interactive Experience Analysis- Rich Brown's portfolio</figcaption>
@@ -323,7 +322,7 @@ footer {
 
 <main>
 
-    <section class="page-intro"
+    <section class="page-intro">
     <h1>Research</h1>
     <p>
        An exploration of the Rich Brown portfolio 
@@ -334,19 +333,23 @@ footer {
     </p>
 </section>
 
-<article class="response-card" id="q1"></article>
-<figure class="card-figure"></figure>
 
-<img
-src="q1-image.jpg"
-alt="the animated loading sequence on portfolio"
-/>
-</figure>
+<article class="response-card" id="q1">
 
-<section class="card-text"></section>
+  <figure class="card-figure">
+    <img src="q1-image.jpg" alt="..." />
+  </figure>
+
+  <section class="card-text">
+    ...
+  </section>
+
+</article>
+
+<section class="card-text">
 <p class="q-number">01</p>
 <h2>First Impression</h2>
-<h3 class="prompt"What was the first thing you paid attention to when interacting with the experience?</h3>
+<h3 class="prompt">What was the first thing you paid attention to when interacting with the experience?</h3>
     <p>
   When entering the Rich Brown Portfolio, 
         the first element that drew my attention was the animated loading sequence,
@@ -359,9 +362,9 @@ alt="the animated loading sequence on portfolio"
 
 </article> 
 
-<article class="response-card reverse" id="q2"
+<article class="response-card reverse" id="q2">
 
-</figure class="card-figure">
+<figure class="card-figure">
     <img
     src="q2-image.jpg"
     alt="scrolling through project sections"
@@ -388,8 +391,7 @@ Navigated back to the main page
 </article>
 
  <article class="response-card" id="q3">
-    <figure class="response-card" id="q3">
-        <figure class="caerd-figure">
+        <figure class="card-figure">
             <img
             src="q3-image.jpg"
             alt="a project case study page"
@@ -422,7 +424,7 @@ Navigated back to the main page
     </article>
 
 
-<section class="card-text"
+<section class="card-text">
 <p class=" q-number">04</p>
 <h2>Most Common Action</h2>
 <h3 class="prompt">What was the most common action in your 
