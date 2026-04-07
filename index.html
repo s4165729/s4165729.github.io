@@ -138,13 +138,118 @@ header-inner h1 {
     display: block;
 }
 
-footer {
-    padding: 20px 40px;
-    text-align: center;
-    font-size: 14px;
-    color: #0b1642
-    box- shadow: 0 -2px 5px rgba(0,0,0,0.1);
+ens. 
+main{ 
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 80px 40px;
 }
+
+.response-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align- items: center;
+    padding: 70px 0;
+    border-bottom: 1px solid #e0ddd8;
+}
+
+.response-card: :last-child {
+    border-botto: none;
+}
+
+.response-card.reverse. card-image {
+    order: 2;
+}
+
+.response-card.reverse. card-text {
+    order: 1;
+}
+
+.card-image img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block; 
+}
+
+.card-text .q-number {
+    display:block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #aaa;
+    margin-bottom: 8px;
+}
+
+.card-text h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.card-text .prompt {
+    font-size: 12px;
+    font-style: italic;
+    color: #888;
+    line-height: 1.6;
+    margin-top: 16px;
+}
+
+.card-text p {
+    font-size: 13px;
+    line-height: 1.85;
+    color: #444;
+}
+
+.page-nav {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #e0ddd8;
+}
+
+.page-nav a {
+    font-size: 13px;
+    text-decoration: none;
+    color: #666;
+    transition: color 0.2s;
+}
+
+.page-nav a:hover {
+    color: #1a1a1a;
+}
+
+footer{ 
+    text-align: center;
+    padding: 24px 40px;
+    font-size: 12px;
+    color: #aaa
+    border-top: 1px solid #e0ddd8
+}
+
+@media (max-width: 640px) {
+    .response-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .response-card.reverse .card-image,
+    .response-card.reverse .card-text {
+        order: unset; 
+    }
+
+    main{
+        padding: 50px 24px;
+    }
+    .site-header {
+        padding: 22px 24px 0 24px; 
+    }
+}
+
     </style>
 </head>
 <body>
@@ -158,6 +263,11 @@ footer {
 <!--<nav> is a semantic element for site-wide 
     navitgation-- site navigation -->
 <header class="site-header">
+
+    <div class=" orb orb-blue" aria-hidden="true"></div>
+    <div class="orb orb-amber" aria-hidden="true"></div>
+
+    
     <div class="site-branding">
         <p>Akira Lordsmith</p>
     </div>
@@ -172,25 +282,34 @@ footer {
 
 <div class="header-inner"
 <h1> Interactive Experience Analysis</h1>
-<p class="subject-label" >An exploration of the Rich Brown portfolio 
-         as an interactive digital experience, analysing how design, movement,
-         and visual elements shape user engagement and meaning. By engaging directly
-         with the site, this analysis examines how interaction guides user behaviour, 
-         communicates purpose, and creates an emotional response.</p>
+<p class="subject-label" >
+    An exploration of the Rich Brown portfolio 
+    as an interactive digital experience, analysing how design, movement,
+    and visual elements shape user engagement and meaning. By engaging directly
+    with the site, this analysis examines how interaction guides user behaviour, 
+    communicates purpose, and creates an emotional response.</p>
         </p>
     </div>
-    </header>
+    
+    <div class="header-image"></div>
+    <img src="richbrown-preview.jpg" alt=" screenshot of the rich brown portfolio website" />
+</div>
+
+</header>
+
 
 <!-- main content-->
 <main>
-    <section class=""page=intro">
-    <p class="page-tag">01-research</p>
-    </section>
-
 <!-- each prompt or response to question is set as an 
  article -->
     <article class="response-card" id="q1">
-        <h2><span class=q-number"></span> First Impression</h2>
+        <div class=""card-image">
+            <img src="q1-image.jpg" alt="rich brown portfolio loading animation" />
+            </div>
+
+        <div class="card-text"> 
+    
+        <h2><span class=q-number">01</span> First Impression</h2>
         <h3 class="prompt">What was the first thing you paif attention to when interacting
             with the expeirence?</h3>
             <p>
@@ -201,8 +320,14 @@ footer {
         is dynamic rather than static. The muted grey-blue colour palette and minimal typography 
         further established a refined visual identity, directing focus toward content while creating a calm and controlled first impression.
         </p>
+        </div>
+
         <article>
         <article class="response-card" id="q2">
+            <div class="card-image">
+                <img src="q2-image.jpg" 
+
+        
             <h2><span class="q-number"02</span>Discrete Actions</span><h2>
             <h3 class="prompt">spend two minutes with the expeirence and create a list of each of you 
                 discrete actions.</h3>
@@ -210,18 +335,46 @@ footer {
                 over two minutes of interaction 
             <p>
             </article>
+        <article class="response-card" id="q3">
+            <div class="card-image">
+                <img src="q3-image.jpg"
 
-        </main>
+                <div class=" card-text"
+                <h2><span class="q-number">03</span>Most Engaged Section</h2>
+                <h3 class="prompt">what part of the eperience did you spend the most time engaing with?</h3>
+                <p>
+                I spent the most time engaging with the project sections, as they function as the core
+                content and primary communicative focus of the portfolio. These sections required sustained
+                attention due to their layered presentation of visual and textual information. The structured 
+                layout and emphasis on individual works reinforced their importance within the overall hierarchy,
+                encouraging deeper interaction and supporting the site’s goal of showcasing the designer’s capabilities.  
+                </p>
+                </div>
 
-        <div class="page-nav">
-            <a href="experience.html">Next: Experience &rarr;</a>
+        </article>
+
+        <article class="response-card reverse" id="q4"></article>
+        <div class="card-image">
+            <img src="q4-image.jpg"
+
+    <div class="card-text"></div>
+    <h2><span class="q-number">04</span>Most Common Actions</h2>
+    <h3 class="prompt">What was the most common action in your two minute interaction 
+        with the experience?</h3>
+        <p>
+         The most frequent action was scrolling, which acts as the dominant navigation mechanism.
+         This continuous vertical interaction creates a fluid and immersive experience,
+         reinforcing a sense of progression through the content.   
+        </p>
         </div>
 
+        </article>
 
- <!-- footer -->
-  <footer>
-    <p>&copy; </p> Akira Lordsmith</p>
-    </footer>
+    </main>
+
+    <div class=""page-nav">
+        <a href="experience.html">Next: Experience &rarr;</a>
+    </div>
 
 </body>
 </html>
