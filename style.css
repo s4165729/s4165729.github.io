@@ -9,7 +9,7 @@ html {
 }
 
  body {
-  font-family: 'DS Sans', sans-serif;
+  font-family: 'DM Sans', sans-serif;
     background-color: #f5f3f0;
     color: #111;
     margin: 0;
@@ -17,7 +17,7 @@ html {
 }
 
 h1, h2, h3 {
-  font-family: 'Inter', 'DM Serif Display' ;
+  font-family: 'DM Serif Display', serif;
   font-weight: normal;
 }
 
@@ -31,15 +31,11 @@ address {
   font-style: normal;
 }
 
-.site-header {
-  background-color: #f5f3f0;
-  border-bottom: 2px solid #111;
-}
-
 .site-header{
     position: relative;
     padding: 20px 40px 0 40px ;
-    overflow: hidden; 
+    overflow: hidden;
+    border-bottom: 2px solid #111; 
     background: linear-gradient(
         160deg,
          #c9d8ee 0%, 
@@ -56,6 +52,7 @@ address {
     opacity: 0.55;
     pointer-events: none;
     z-index: 1;
+    mix-blend-mode: multiply;
 }
 
 .orb-blue {
@@ -135,8 +132,8 @@ address {
 }
 
 .masthead-eyebrow {
-    font-family: DM Sans', sans-serif;
-    font-size: 10px
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -145,8 +142,8 @@ address {
 }
 
 .masthead-title {
-    font-family: Bebas Neue', sans-serif;
-    font-size: clamp(96px, 12vn, 160px);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(96px, 12vw, 160px);
     line-height: 0.9;
     letter-spacing: -0.01em;
     color: #111;
@@ -194,9 +191,6 @@ address {
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.75);
 }
-
-
-
 
 .response-card {
     display: grid;
@@ -314,7 +308,7 @@ footer {
     }
 
     .masthead-figure {
-        height: 260;
+        height: 260px;
     }
 
     .category-nav {
@@ -350,6 +344,5 @@ footer {
     }
 
     }
-}
 
     </style>
