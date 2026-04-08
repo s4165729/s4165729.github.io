@@ -1,22 +1,40 @@
 <style>
 
+html {
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
  body {
-  font-family: 'Inter', sans-serif;
-    background-color: #f2f1f2ef;
-    color: #1a1a1a;
+  font-family: 'DS Sans', sans-serif;
+    background-color: #f5f3f0;
+    color: #111;
     margin: 0;
     padding: 0;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-}
-
 h1, h2, h3 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'DM Serif Display' ;
+  font-weight: normal;
 }
 
-h1, h2, h3 { font-weight: 600; }
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ 
+address {
+  font-style: normal;
+}
+
+.site-header {
+  background-color: #f5f3f0;
+  border-bottom: 2px solid #111;
+}
 
 .site-header{
     position: relative;
@@ -66,27 +84,30 @@ h1, h2, h3 { font-weight: 600; }
 }
 
 .site-nav {
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    z-index: 3; 
+    display: flex;
+    justify-content:  flex-end;
+    padding: 14px 40px ;
+    border-bottom: 1px solid #ccc;
 }
 
 .site-nav ul {
     display: flex;
     flex-direction: row;
     list-style: none;
-    gap: 32px;
+    gap: 36px;
     margin: 0;
     padding: 0;
 }
 
 .site-nav a {
     text-decoration: none;
-    font-size: 13px;
-    font-weight: 400;
-    color: #1a1a1a;
-    transition: color 0.25s;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #111;
+    transition: color 0.2s;
 }
 
 .site-nav a:hover{
@@ -94,9 +115,91 @@ h1, h2, h3 { font-weight: 600; }
 }
 
 .site-nav a.active {
-    border-bottom: 1.5px solid #1a1a1a;
+    border-bottom: 2px solid #111;
     padding-bottom: 2px;
 }
+
+.masthead {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+}
+
+.masthead-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px 40px 40px 40px;
+    border-right: 1px solid #ccc;
+    position: relative;
+}
+
+.masthead-eyebrow {
+    font-family: DM Sans', sans-serif;
+    font-size: 10px
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #888;
+    margin: 0 0 16px 0; 
+}
+
+.masthead-title {
+    font-family: Bebas Neue', sans-serif;
+    font-size: clamp(96px, 12vn, 160px);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    color: #111;
+    margin: 0 0 20px 0;
+}
+
+.masthead-sub {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #555;
+    line-height: 1.4;
+    margin: 0 0 32px 0;
+}
+
+.site-branding {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.masthead-figure {
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.masthead-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.masthead-figure figcaption {
+    position: absolute;
+    bottom: 14px;
+    left: 16px;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+
+
+
+
 
 .hero-figure {
     position: relative;
