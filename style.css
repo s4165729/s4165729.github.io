@@ -126,7 +126,7 @@ address {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 40px 40px 40px 40px;
+    padding: 44px 20px;
     border-right: 1px solid #ccc;
     position: relative;
 }
@@ -182,14 +182,7 @@ address {
 }
 
 .masthead-figure figcaption {
-    position: absolute;
-    bottom: 14px;
-    left: 16px;
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.75);
+    display: none;
 }
 
 .response-card {
@@ -256,7 +249,7 @@ address {
     max-width: 900px;
     margin: 0 auto;
     padding: 28px 40px;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid #e0ddd8;
@@ -316,7 +309,9 @@ footer {
     }
     
     main {
-        padding: 44px 20px 20px 20px;
+       max-width: 900p;
+       margin: 0 auto;
+       padding: 44px 20px;
     }
 
     .response-card {
@@ -344,5 +339,45 @@ footer {
     }
 
     }
+
+main {
+max-width: 900px;
+margin: 0 auto;
+padding: 44px 20px;
+}
+.masthead-text {
+padding: 40px;
+}
+
+.page-top-nav ul {
+display: flex;
+justify-content: center;
+gap: 32px;
+list-style: none;
+padding: 0;
+margin: 40px 0;
+}
+
+.page-top-nav li {
+text-align: center;
+}
+
+.page-top-nav img {
+width: 80px;
+height: auto;
+margin-bottom: 8px;
+border-radius: 8px;
+}
+
+.page-top-nav span {
+font-weight: bold;
+display: block;
+}
+
+.page-top-nav em {
+font-style: normal;
+color: #777;
+font-size: 12px;
+}
 
     </style>
