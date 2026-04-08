@@ -36,8 +36,14 @@
   </ul>
 </nav>
 
- <section class="masthead">
-      <div class="masthead-text">
+ <div class="masthead-bg">
+  <iframe 
+    src="https://www.youtube.com/embed/RxBuJNcZeYo?autoplay=1&mute=1&loop=1&playlist=RxBuJNcZeYo"
+    frameborder="0"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
+</div>
         <p class="masthead-eyebrow">Interactive Media — Assignment 1</p>
         
         <p class="masthead-sub">Portfolio Analysis<br>Rich Brown </p>
@@ -181,6 +187,11 @@
 <footer>
   <p>&copy; 2026 Akira Lordsmith &mdash; Interactive Media Assignment 1 &mdash; RMIT University</p>
 </footer>
-
+git filter-branch --force --index-filter \
+"git rm --cached --ignore-unmatch your-video.mp4" \
+--prune-empty --tag-name-filter cat -- --all
+git rm --cached your-video.mp4
+git commit -m "Remove large video file"
+git push origin main
 </body>
 </html>
