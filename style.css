@@ -198,66 +198,6 @@ address {
 
 
 
-
-
-
-.hero-figure {
-    position: relative;
-    margin: 28px -40px 0 -40px;
-    z-index: 2;
-}
-
-.hero-image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-}
-
-.hero-figure figcaption {
-  display: none;
-}
-
-.hero-title {
-  text-align: center;
-  color: #000;
-  font-size: 14px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-weight: 500;
-  opacity: 0.9;
-}
-
-
-main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 60px 40px 20px 40px;
-}
-
-.page-intro {
-    padding-bottom: 48px;
-    border-bottom: 1px solid #e0ddd8;
-    margin-bottom: 10px;
-    max-width: 500px;
-}
-
-.page-intro h1 {
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 14px;
-    color: #1a1a1a
-}
-
-.page-intro p {
-    font-size: 13px;
-    line-height: 1.8;
-    color: #666;
-}
-
-
 .response-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -348,41 +288,67 @@ footer {
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 680px) {
 
-    .site-header {
-        padding: 20px 24px 0 24px;
+    .site-nav {
+        padding: 14px 20px;
     }
 
-    .hero-figure {
-        margin: 20px -24px 0 -24px;
+    .site-nav ul {
+        gap: 20px;
     }
 
-    .hero-image {
-        height: 180px;
+    .masthead {
+        grid-template-columns: 1fr;
+        min-height: auto;
     }
 
+    .masthead-text {
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        padding: 28px 20px;
+    }
+
+    .masthead-title {
+        font-size: 88px;
+    }
+
+    .masthead-figure {
+        height: 260;
+    }
+
+    .category-nav {
+        padding: 0 20px;
+    }
+    
     main {
-        padding: 40px 24px 20px 24px; 
+        padding: 44px 20px 20px 20px;
     }
 
     .response-card {
         grid-template-columns: 1fr;
         gap: 28px;
-        padding: 48px 0;
+        padding: 52px 0;
     }
 
-    .response-card.reverse .card-figure,
+    .response-card.reverse .card-figure, 
     .response-card.reverse .card-text {
-        order: unset; 
+        order: unset;
     }
 
-    .page-nav {
-        padding: 24px;
+    .magazine-nav {
+        padding: 44px 20px;
     }
 
-    .site-nav ul {
-        gap: 20px;
+    .magazine-nav-list {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .magazine-nav-item figure {
+        aspect-ratio: 16 / 9;
+    }
+
     }
 }
 
